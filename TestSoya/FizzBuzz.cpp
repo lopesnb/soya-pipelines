@@ -3,7 +3,8 @@
 
 std::string FizzBuzz::change(int num)
 {
-    return std::to_string(num);
+    if (num == 3) return "Fizz";;
+    if (num == 5) return "Buzz";;
 
     return std::to_string(num);
 }

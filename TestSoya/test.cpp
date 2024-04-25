@@ -8,8 +8,14 @@ TEST(TestCaseName1, TestName) {
 	EXPECT_EQ(fizzBuzz.change(2), "2");
 
 }
-TEST(TestCaseName2, TestName) {
+TEST(TestCaseFizz, TestName) {
 	FizzBuzz fizzBuzz;
 	EXPECT_EQ(fizzBuzz.change(3), "Fizz");
 
 }
+TEST(TestCaseBuzz, TestName) {
+	FizzBuzz fizzBuzz;
+	EXPECT_EQ(fizzBuzz.change(5), "Buzz");
+
+}
+
