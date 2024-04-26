@@ -18,4 +18,8 @@ TEST(TestCaseBuzz, TestName) {
 	EXPECT_EQ(fizzBuzz.change(5), "Buzz");
 
 }
+TEST(TestCaseFizzBuzz, TestName) {
+	FizzBuzz fizzBuzz;
+	EXPECT_EQ(fizzBuzz.change(15), "FizzBuzz");
 
+}
