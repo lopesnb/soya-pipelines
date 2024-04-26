@@ -2,23 +2,23 @@
 #include <string>
 #include "FizzBuzz.h"
 using namespace std;
-TEST(TestCaseName1, TestName) {
+TEST(TestFizzBuzzQuestio, input1) {
 	FizzBuzz fizzBuzz;
 	EXPECT_EQ(fizzBuzz.change(1), "1");
 	EXPECT_EQ(fizzBuzz.change(2), "2");
 
 }
-TEST(TestCaseFizz, TestName) {
+TEST(TestFizzBuzzQuestio, input3) {
 	FizzBuzz fizzBuzz;
 	EXPECT_EQ(fizzBuzz.change(3), "Fizz");
 
 }
-TEST(TestCaseBuzz, TestName) {
+TEST(TestFizzBuzzQuestio, input5) {
 	FizzBuzz fizzBuzz;
 	EXPECT_EQ(fizzBuzz.change(5), "Buzz");
 
 }
-TEST(TestCaseFizzBuzz, TestName) {
+TEST(TestFizzBuzzQuestio, input15) {
 	FizzBuzz fizzBuzz;
 	EXPECT_EQ(fizzBuzz.change(15), "FizzBuzz");
 
