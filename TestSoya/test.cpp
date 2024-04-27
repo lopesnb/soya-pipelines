@@ -2,24 +2,29 @@
 #include <string>
 #include "FizzBuzz.h"
 using namespace std;
-TEST(TestFizzBuzzQuestio, input1) {
+class TestFizzBuzz : public ::testing::Test
+{
+protected:
+	virtual void SetUp() {
+		FizzBuzz fizzBuzz;
+	}
 	FizzBuzz fizzBuzz;
+};
+
+TEST_F(TestFizzBuzz, input1) {
 	EXPECT_EQ(fizzBuzz.change(1), "1");
 	EXPECT_EQ(fizzBuzz.change(2), "2");
 
 }
-TEST(TestFizzBuzzQuestio, input3) {
-	FizzBuzz fizzBuzz;
+TEST_F(TestFizzBuzz, input3) {
 	EXPECT_EQ(fizzBuzz.change(3), "Fizz");
 
 }
-TEST(TestFizzBuzzQuestio, input5) {
-	FizzBuzz fizzBuzz;
+TEST_F(TestFizzBuzz, input5) {
 	EXPECT_EQ(fizzBuzz.change(5), "Buzz");
 
 }
-TEST(TestFizzBuzzQuestio, input15) {
-	FizzBuzz fizzBuzz;
+TEST_F(TestFizzBuzz, input15) {
 	EXPECT_EQ(fizzBuzz.change(15), "FizzBuzz");
 
 }
