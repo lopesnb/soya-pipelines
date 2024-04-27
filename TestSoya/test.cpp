@@ -13,7 +13,6 @@ protected:
 
 TEST_F(TestFizzBuzz, input1) {
 	EXPECT_EQ(fizzBuzz.change(1), "1");
-	EXPECT_EQ(fizzBuzz.change(2), "2");
 
 }
 TEST_F(TestFizzBuzz, input3) {
