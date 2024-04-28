@@ -2,7 +2,7 @@
 #include <string>
 #include "FizzBuzz.h"
 using namespace std;
-namespace inputNumToFizzBuzz
+namespace TestInputNumToFizzBuzz
 {
 	class TestFizzBuzz : public ::testing::Test
 	{
