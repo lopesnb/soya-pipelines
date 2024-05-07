@@ -39,4 +39,9 @@ namespace TestKeijyoIdo
 		XYZ retxyz=xyz.idoY(1);
 		EXPECT_EQ(1, retxyz.y);
 	}
+	TEST(Test_XYZ, xIdo) {
+		XYZ xyz;
+		XYZ retxyz = xyz.idoX(1);
+		EXPECT_EQ(1, retxyz.x);
+	}
 }
