@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <string>
 #include "FizzBuzz.h"
+#include "XYZ.h"
 using namespace std;
 namespace TestInputNumToFizzBuzz
 {
@@ -29,5 +30,13 @@ namespace TestInputNumToFizzBuzz
 	TEST_F(TestFizzBuzz, input15) {
 		EXPECT_EQ(fizzBuzz.change(15), "FizzBuzz");
 
+	}
+}
+namespace TestKeijyoIdo
+{
+	TEST(Test_XYZ, yIdo) {
+		XYZ xyz ;
+		XYZ retxyz=xyz.idoY(1);
+		EXPECT_EQ(1, retxyz.y);
 	}
 }
