@@ -1,7 +1,7 @@
 #include "pch.h"
 #include <string>
 #include "FizzBuzz.h"
-#include "Section.h"
+#include "Measure.h"
 using namespace std;
 namespace TestInputNumToFizzBuzz
 {
@@ -107,4 +107,21 @@ namespace TestSection
 		EXPECT_TRUE(XYZ(0, 101, 0) == sectionMove.getXYZ(9));
 	}
 
+}
+
+namespace TestMeasure
+{
+
+	TEST(TestKeijyo, idoZero)
+	{
+		Measure measure(50, 0, 0, 0);
+		Section section =measure.makeSection();
+		EXPECT_TRUE(XYZ(-50,0,0)==section.getXYZ(18));
+	}
+	TEST(TestKeijyo, idoXYadd10)
+	{
+		Measure measure(50, 10, 10, 0);
+		Section section = measure.makeSection();
+		EXPECT_TRUE(XYZ(-40, 10, 0) == section.getXYZ(18));
+	}
 }
