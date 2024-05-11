@@ -2,6 +2,7 @@
 #include <string>
 #include "FizzBuzz.h"
 #include "Measure.h"
+#include "Shape.h"
 using namespace std;
 namespace TestInputNumToFizzBuzz
 {
@@ -83,14 +84,8 @@ namespace TestSection
 	{
 	protected:
 		virtual void SetUp() {
-			for (int i = 0; i < 36; i++)
-			{
-				double radKaku=M_PI*(10.0*i / 180);
-				double x = cos(radKaku)*100;
-				double y = sin(radKaku)*100;
-				section.addXYZ(XYZ(x,y,0));
-
-			}
+			Measure measure(100, 0, 0, 0);
+			section = measure.makeSection();
 		}
 		Section section;
 	};
@@ -112,16 +107,46 @@ namespace TestSection
 namespace TestMeasure
 {
 
-	TEST(TestKeijyo, idoZero)
+	TEST(TestMeasure, idoZero)
 	{
 		Measure measure(50, 0, 0, 0);
 		Section section =measure.makeSection();
 		EXPECT_TRUE(XYZ(-50,0,0)==section.getXYZ(18));
 	}
-	TEST(TestKeijyo, idoXYadd10)
+	TEST(TestMeasure, idoXYadd10)
 	{
 		Measure measure(50, 10, 10, 0);
 		Section section = measure.makeSection();
 		EXPECT_TRUE(XYZ(-40, 10, 0) == section.getXYZ(18));
 	}
+}
+namespace TestShape
+{
+	class TestShapeF : public ::testing::Test
+	{
+	protected:
+		virtual void SetUp() {
+			Section sections[5];
+			Measure measure(50, 0, 10, 0);
+			sections[0]= measure.makeSection();
+			Measure measure1(60, 0, 20, 0);
+			sections[1] = measure1.makeSection();
+			Measure measure2(70, 0, 30, 0);
+			sections[2] = measure2.makeSection();
+			Measure measure3(80, 0, 25, 0);
+			sections[3] = measure3.makeSection();
+			Measure measure4(90, 0, 15, 0);
+			sections[4] = measure4.makeSection();
+			Shape shapewk(sections);
+			shape = shapewk;
+		}
+		Shape shape;
+	};
+	TEST_F(TestShapeF, idoZero)
+	{
+		shape.section[0].getXYZ(1);
+		EXPECT_TRUE(XYZ(-50, 10, 0) == shape.section[0].getXYZ(18));
+		EXPECT_TRUE(XYZ(-90, 15, 0) == shape.section[4].getXYZ(18));
+	}
+
 }
