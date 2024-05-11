@@ -101,6 +101,11 @@ namespace TestSection
 		Section sectionMove = section.moveY(1);
 		EXPECT_TRUE(XYZ(0, 101, 0) == sectionMove.getXYZ(9));
 	}
+	TEST_F(TestSectionF, calcJyusin)
+	{
+
+		EXPECT_TRUE(Jyusin(0, 0) == section.calcJyusin());
+	}
 
 }
 
