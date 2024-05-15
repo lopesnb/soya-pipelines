@@ -106,7 +106,21 @@ namespace TestSection
 
 		EXPECT_TRUE(Jyusin(0, 0) == section.calcJyusin());
 	}
+	class TestSectionRotF : public ::testing::Test
+	{
+	protected:
+		virtual void SetUp() {
+			Measure measure(100, 0, 0, 4000);
+			section = measure.makeSection();
+		}
+		Section section;
+	};
+	TEST_F(TestSectionRotF, rotX)
+	{
 
+		Section sectionMove = section.rotX(90);
+		EXPECT_TRUE(XYZ(100, -4000, 0) == sectionMove.getXYZ(0));
+	}
 }
 
 namespace TestMeasure
@@ -134,13 +148,13 @@ namespace TestShape
 			Section sections[5];
 			Measure measure(50, 0, 10, 0);
 			sections[0]= measure.makeSection();
-			Measure measure1(60, 0, 20, 0);
+			Measure measure1(60, 0, 20, 1000);
 			sections[1] = measure1.makeSection();
-			Measure measure2(70, 0, 30, 0);
+			Measure measure2(70, 0, 30, 2000);
 			sections[2] = measure2.makeSection();
-			Measure measure3(80, 0, 25, 0);
+			Measure measure3(80, 0, 25, 3000);
 			sections[3] = measure3.makeSection();
-			Measure measure4(90, 0, 15, 0);
+			Measure measure4(90, 0, 15, 4000);
 			sections[4] = measure4.makeSection();
 			Shape shapewk(sections);
 			shape = shapewk;
@@ -151,7 +165,13 @@ namespace TestShape
 	{
 		shape.section[0].getXYZ(1);
 		EXPECT_TRUE(XYZ(-50, 10, 0) == shape.section[0].getXYZ(18));
-		EXPECT_TRUE(XYZ(-90, 15, 0) == shape.section[4].getXYZ(18));
+		EXPECT_TRUE(XYZ(-90, 15, 4000) == shape.section[4].getXYZ(18));
+	}
+	TEST_F(TestShapeF, centerring)
+	{
+		Shape shapeCenter=shape.centrring();
+		EXPECT_TRUE(XYZ(-50, 0, 0) == shapeCenter.section[0].getXYZ(18));
+		EXPECT_TRUE(XYZ(-90, 0, 4000.0031) == shapeCenter.section[4].getXYZ(18));
 	}
 
 }
